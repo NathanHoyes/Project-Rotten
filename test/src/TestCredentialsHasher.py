@@ -1,6 +1,8 @@
 import unittest
 import sys
-sys.path.append("\Project-Rotten\main\src\CredentialsManagement")
+
+# this is to allow me to import the credentials hasher below
+sys.path.append("\Project Rotten\Project-Rotten\main\src\CredentialsManagement")
 
 from CredentialsHasher import CredentialsHasher
 
