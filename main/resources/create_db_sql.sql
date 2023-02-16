@@ -39,13 +39,6 @@ CREATE TABLE Products (
     PRIMARY KEY(ProductID)
 );
 
--- CREATE TABLE Salt (
---     SaltID int AUTO_INCREMENT,
---     LoginID int,
---     Salt VARCHAR(256) NOT NULL,
---     PRIMARY KEY(SaltID),
---     FOREIGN KEY (LoginID) REFERENCES Logins(LoginID)
---);
 
 CREATE TABLE Staff (
     StaffID int AUTO_INCREMENT,
@@ -122,10 +115,6 @@ INSERT INTO Products(ProductName, PrimaryProductCategoryID, SecondaryProductCate
 INSERT INTO Products(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) VALUES("Bernaise", 6, 8, 50, 50);
 INSERT INTO Products(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) VALUES("Vanilla Ice Cream", 4, 6, 1500, 1000);
 INSERT INTO Products(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) VALUES("Pasta", 8, 11, 500, 500);
-
--- INSERT INTO Salt(LoginID, Salt) VALUES(1, "5f5617b39dbd7a45645bee7c52d48bae609173f104e874a53ffdc966ed8896db");
--- INSERT INTO Salt(LoginID, Salt) VALUES(2, "d431c9148b632ab813684cdbc4e6890e71a30766d068fe185032af1ed2692b39");
--- INSERT INTO Salt(LoginID, Salt) VALUES(3, "d35ac2c303bd37242b1f9c85d5c3aa16eaf90e74b8d726a237b7ca99dcc787cc");
 
 INSERT INTO Staff(LoginID, FirstName, LastName, LocationID) VALUES(1,"Andrew", "Stevens", 1);
 INSERT INTO Staff(LoginID, FirstName, LastName, LocationID) VALUES(1,"Nathan", "Hoyes", 2);
