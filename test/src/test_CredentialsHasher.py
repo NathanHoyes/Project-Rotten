@@ -1,13 +1,8 @@
-import unittest
-import sys
+from unittest import TestCase
 
-# this is to allow me to import the credentials hasher below
-sys.path.append("\Project Rotten\Project-Rotten\main\src\CredentialsManagement")
+from CredentialsManagement.CredentialsHasher import CredentialsHasher
 
-from CredentialsHasher import CredentialsHasher
-
-class TestCredentialsHasher(unittest.TestCase):
-
+class TestCredentialsHasher(TestCase):
     def test_should_hash_correctly_test(self):
         hasher = CredentialsHasher()
         value = "test_value_to_be_hashed"
@@ -41,5 +36,3 @@ class TestCredentialsHasher(unittest.TestCase):
         hashed_login_token = hasher.createHashedLoginToken(hashed_email, hashed_password)
         self.assertEqual(hashed_login_token, expected_hashed_login_token,
                          f"Incorrect hashed value: Expected {expected_hashed_login_token} but was {hashed_login_token}")
-
-unittest.main()
