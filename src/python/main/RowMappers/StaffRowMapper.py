@@ -2,7 +2,7 @@ from CredentialsManagement.Staff import Staff
 
 
 # creates an admin object with the row results
-def map_row(self, row: list) -> Staff:
+def map_row(row: list) -> Staff:
     return Staff(row[0], row[1], row[2], row[3], row[4])
 
 

@@ -2,7 +2,7 @@ from CredentialsManagement.Login import Login
 
 
 # creates an admin object with the row results
-def map_row(self, row: list) -> Login:
+def map_row(row: list) -> Login:
     return Login(row[0], row[1], row[2])
 
 
