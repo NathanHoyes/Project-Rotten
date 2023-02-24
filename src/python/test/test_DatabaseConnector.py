@@ -58,4 +58,4 @@ class TestDatabaseConnector(TestCase):
     # resets the DB by executing the .sql file
     def setup(self):
         db = DatabaseConnector()
-        db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\main\\resources\\create_db_sql.sql")
+        db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\src\\resources\\create_db_sql.sql")
