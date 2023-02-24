@@ -3,8 +3,8 @@ from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 class LoginDatabaseExecutor:
 
-    select_by_id_sql = "SELECT * FROM Login WHERE LoginID = "
-    select_all_sql = "SELECT * FROM Login"
+    select_by_id_sql = "SELECT * FROM Logins WHERE LoginID = "
+    select_all_sql = "SELECT * FROM Logins"
     database_connector = DatabaseConnector()
 
     def get_row_by_id(self, id : int) -> iter:

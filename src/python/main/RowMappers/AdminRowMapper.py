@@ -10,7 +10,14 @@ def map_row( row: list) -> Admin:
 
 def map_multiple_rows(self, query_result: iter) -> list[Admin]:
     admin_result = []
-    for admin in query_result:
-        admin_result.append(self.map_row(admin))
+
+    row = next(query_result)
+
+    while True:
+        try:
+            admin_result.append(Admin(row[0], row[1]))
+            row = next(query_result)
+        except StopIteration:
+            break
 
     return admin_result
