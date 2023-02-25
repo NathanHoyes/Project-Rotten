@@ -3,6 +3,7 @@ from RowMappers.SecondaryProductCategoryRowMapper import *
 from DatabaseConnector.SecondaryProductCategoryDatabaseExecutor import SecondaryProductCategoryDatabaseExecutor
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
+
 class Test(TestCase):
 
     executor = SecondaryProductCategoryDatabaseExecutor()
