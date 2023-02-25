@@ -1,6 +1,6 @@
 from unittest import TestCase
 from RowMappers.LoginRowMapper import *
-from CredentialsManagement.LoginDatabaseExecutor import LoginDatabaseExecutor
+from DatabaseConnector.LoginDatabaseExecutor import LoginDatabaseExecutor
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 class test_LoginRowMapper(TestCase):

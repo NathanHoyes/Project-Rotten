@@ -1,4 +1,4 @@
-class Product():
+class Product:
     
     def __init__(self, productID, productName, primaryProductCategory, 
                 secondaryProductCategory, unitCostPence, unitWeightGrams):

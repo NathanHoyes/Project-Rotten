@@ -1,6 +1,6 @@
 from unittest import TestCase
 from RowMappers.AdminRowMapper import *
-from CredentialsManagement.AdminDatabaseExecutor import AdminDatabaseExecutor
+from DatabaseConnector.AdminDatabaseExecutor import AdminDatabaseExecutor
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 class Test(TestCase):

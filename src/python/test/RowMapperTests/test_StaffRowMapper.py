@@ -1,6 +1,6 @@
 from unittest import TestCase
 from RowMappers.StaffRowMapper import *
-from CredentialsManagement.StaffDatabaseExecutor import StaffDatabaseExecutor
+from DatabaseConnector.StaffDatabaseExecutor import StaffDatabaseExecutor
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 class Test(TestCase):
