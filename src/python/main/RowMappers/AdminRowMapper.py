@@ -2,13 +2,14 @@ from CredentialsManagement.Admin import Admin
 
 
 # creates an admin object with the row results
-def map_row( row: list) -> Admin:
+def map_row(row_iterator: list) -> Admin:
+    row = next(row_iterator)
     return Admin(row[0], row[1])
 
     # creates a list of admin objects from the supplied query result
 
 
-def map_multiple_rows(self, query_result: iter) -> list[Admin]:
+def map_multiple_rows(query_result: iter) -> list[Admin]:
     admin_result = []
 
     row = next(query_result)

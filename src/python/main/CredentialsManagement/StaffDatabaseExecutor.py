@@ -4,7 +4,7 @@ from DatabaseConnector.DatabaseConnector import DatabaseConnector
 class StaffDatabaseExecutor:
 
     select_by_id_sql = "SELECT * FROM Staff WHERE StaffID = "
-    select_all_sql = "SELECT * FROM Login"
+    select_all_sql = "SELECT * FROM Staff"
     database_connector = DatabaseConnector()
 
     def get_row_by_id(self, id : int) -> iter:
