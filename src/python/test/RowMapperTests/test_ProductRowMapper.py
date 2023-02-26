@@ -34,4 +34,4 @@ class Test(TestCase):
 
 
     def setup_db(self):
-        self.db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\src\\resources\\create_db_sql.sql")
+        self.db.executeSqlScript("../../../resources/create_db_sql.sql")

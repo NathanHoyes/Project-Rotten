@@ -32,4 +32,4 @@ class Test(TestCase):
         self.assertEqual(str(wastage.datetime_recorded), "2023-01-30 20:10:00")
 
     def setup_db(self):
-        self.db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\src\\resources\\create_db_sql.sql")
+        self.db.executeSqlScript("../../../resources/create_db_sql.sql")

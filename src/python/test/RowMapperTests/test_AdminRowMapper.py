@@ -1,4 +1,5 @@
 from unittest import TestCase
+import os
 from RowMappers.AdminRowMapper import *
 from DatabaseConnector.AdminDatabaseExecutor import AdminDatabaseExecutor
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
@@ -27,4 +28,4 @@ class Test(TestCase):
 
 
     def setup_db(self):
-        self.db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\src\\resources\\create_db_sql.sql")
+        self.db.executeSqlScript("../../../resources/create_db_sql.sql")

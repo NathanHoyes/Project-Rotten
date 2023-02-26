@@ -26,4 +26,4 @@ class test_LoginRowMapper(TestCase):
         self.assertEqual(a_login.hashedEmail, "fdd8157ddd7d2ade12a3799aa9998a8de76d291c1f3ddce3b3bb7edb2f42c7a8")
 
     def setup_db(self):
-        self.db.executeSqlScript("E:\\Project Rotten\\Project-Rotten\\src\\resources\\create_db_sql.sql")
+        self.db.executeSqlScript("../../../resources/create_db_sql.sql")
