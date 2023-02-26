@@ -1,4 +1,6 @@
 from DatabaseConnector.DatabaseConnector import DatabaseConnector
+from datetime import datetime
+
 
 class WastageDatabaseConnector:
 
@@ -12,6 +14,12 @@ class WastageDatabaseConnector:
 
     def get_all_rows(self) -> iter:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
+
+    def insert_row(self, productID : int, quantity : int, staffID : int, locationID : int) -> None:
+        datetime_string = datetime.strftime("%d-%m-%Y %H:%M:%S")
+        insert_sql = f"INSERT INTO wastage (ProductID, Quantity, StaffID, LocationID, DateTimeRecorded) " \
+                     f"VALUES({productID}, {quantity}, {staffID}, {locationID}, {datetime_string})"
+        self.database_connector.executeUpdateStatement(insert_sql)
 
 
     #TODO add additional search functionality - this will be very important

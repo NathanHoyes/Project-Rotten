@@ -13,3 +13,11 @@ class AdminDatabaseExecutor:
 
     def get_all_rows(self) -> iter:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
+
+    def insert_row(self, staffID : int) -> None:
+        insert_sql = f"INSERT INTO admin (StaffID) VALUES({staffID})"
+        self.database_connector.executeUpdateStatement(insert_sql)
+
+    def delete_row(self, adminID : int) -> None:
+        delete_sql = f"DELETE FROM admin WHERE AdminID = {adminID}"
+        self.database_connector.executeUpdateStatement(delete_sql)
