@@ -1,4 +1,4 @@
-from CredentialsManagement.Login import Login
+from ..CredentialsManagement.Login import Login
 
 
 # creates an admin object with the row results

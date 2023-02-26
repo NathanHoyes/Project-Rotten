@@ -1,7 +1,7 @@
 from unittest import TestCase
-from RowMappers.SecondaryProductCategoryRowMapper import *
-from DatabaseConnector.SecondaryProductCategoryDatabaseExecutor import SecondaryProductCategoryDatabaseExecutor
-from DatabaseConnector.DatabaseConnector import DatabaseConnector
+from ...main.RowMappers.SecondaryProductCategoryRowMapper import *
+from ...main.DatabaseConnector.SecondaryProductCategoryDatabaseExecutor import SecondaryProductCategoryDatabaseExecutor
+from ...main.DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 
 class Test(TestCase):

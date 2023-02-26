@@ -1,4 +1,4 @@
-from FoodObjects.Wastage import Wastage
+from ..FoodObjects.Wastage import Wastage
 
 
 # creates an admin object with the row results

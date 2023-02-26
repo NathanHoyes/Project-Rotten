@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from DatabaseConnector.DatabaseConnector import DatabaseConnector
+from src.python.main.DatabaseConnector.DatabaseConnector import DatabaseConnector
 class TestDatabaseConnector(TestCase):
 
     db = DatabaseConnector()
