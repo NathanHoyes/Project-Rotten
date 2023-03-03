@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS Rotten_Test_Database;
-CREATE DATABASE Rotten_Test_Database;
-USE Rotten_Test_Database;
+DROP DATABASE IF EXISTS rotten_test_database;
+CREATE DATABASE rotten_test_database;
+USE rotten_test_database;
 
 CREATE TABLE Logins (
     LoginID int AUTO_INCREMENT,
