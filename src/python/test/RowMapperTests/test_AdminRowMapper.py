@@ -1,8 +1,8 @@
 from unittest import TestCase
 
-from ...main.DatabaseConnector.AdminDatabaseExecutor import AdminDatabaseExecutor
-from ...main.DatabaseConnector.DatabaseConnector import DatabaseConnector
-from ...main.RowMappers.AdminRowMapper import *
+from DatabaseConnector.AdminDatabaseExecutor import AdminDatabaseExecutor
+from DatabaseConnector.DatabaseConnector import DatabaseConnector
+from RowMappers.AdminRowMapper import *
 
 
 class Test(TestCase):

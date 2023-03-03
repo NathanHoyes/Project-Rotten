@@ -1,4 +1,4 @@
-from src.python.main.DatabaseConnector.DatabaseConnector import DatabaseConnector
+from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 
 class AdminDatabaseExecutor:

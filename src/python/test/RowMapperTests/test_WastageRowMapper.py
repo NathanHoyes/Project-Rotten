@@ -1,7 +1,7 @@
 from unittest import TestCase
-from ...main.RowMappers.WastageRowMapper import *
-from ...main.DatabaseConnector.WastageDatabaseExecutor import WastageDatabaseConnector
-from ...main.DatabaseConnector.DatabaseConnector import DatabaseConnector
+from RowMappers.WastageRowMapper import *
+from DatabaseConnector.WastageDatabaseExecutor import WastageDatabaseConnector
+from DatabaseConnector.DatabaseConnector import DatabaseConnector
 
 class Test(TestCase):
 

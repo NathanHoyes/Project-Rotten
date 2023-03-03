@@ -1,4 +1,4 @@
-from ..FoodObjects.Product import Product
+from FoodObjects.Product import Product
 
 
 # creates an admin object with the row results

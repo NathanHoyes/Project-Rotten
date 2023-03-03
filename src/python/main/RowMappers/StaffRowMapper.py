@@ -1,4 +1,4 @@
-from ..CredentialsManagement.Staff import Staff
+from CredentialsManagement.Staff import Staff
 
 
 # creates an admin object with the row results

@@ -1,4 +1,4 @@
-from ..DatabaseConnector.DatabaseConnector import DatabaseConnector
+from DatabaseConnector.DatabaseConnector import DatabaseConnector
 from datetime import datetime
 
 

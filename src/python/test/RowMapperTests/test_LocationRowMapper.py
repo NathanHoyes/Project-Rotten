@@ -30,4 +30,4 @@ class Test(TestCase):
         self.assertEqual(locations[3].locationName, "Testaraunt")
 
     def setup_db(self):
-        self.db.executeSqlScript("../../../../resources/create_db_sql.sql")
+        self.db.executeSqlScript("../../../resources/create_db_sql.sql")

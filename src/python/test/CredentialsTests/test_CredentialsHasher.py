@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from ...main.CredentialsManagement.CredentialsHasher import CredentialsHasher
+from CredentialsManagement.CredentialsHasher import CredentialsHasher
 
 class TestCredentialsHasher(TestCase):
     def test_should_hash_correctly_test(self):

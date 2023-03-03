@@ -1,4 +1,4 @@
-from ..CategoryObjects.SecondaryProductCategory import SecondaryProductCategory
+from CategoryObjects.SecondaryProductCategory import SecondaryProductCategory
 
 # creates an admin object with the row results
 def map_row(row_iterator: list) -> SecondaryProductCategory:
