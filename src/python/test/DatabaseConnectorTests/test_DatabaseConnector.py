@@ -6,6 +6,7 @@ class TestDatabaseConnector(TestCase):
     db = DatabaseConnector()
 
     def test_should_correctly_select_all_items_from_table(self, expected_size=3):
+        print("testing select all from table")
         self.setup_db()
         db = DatabaseConnector()
         sql = "SELECT * FROM Staff"
@@ -14,6 +15,7 @@ class TestDatabaseConnector(TestCase):
                          f"Incorrect size of record: Expected record of size {expected_size} but was size {len(list(result))}")
 
     def test_should_correctly_select_by_id(self, expected_size=1):
+        print("testing select by id")
         self.setup_db()
         db = DatabaseConnector()
         sql = "SELECT * FROM Staff WHERE StaffID = 1"
@@ -22,6 +24,7 @@ class TestDatabaseConnector(TestCase):
                          f"Incorrect size of record: Expected record of size {expected_size} but was size {len(list(result))}")
 
     def test_should_correctly_update_single_row_by_id(self, expected_size=1):
+        print("testing update single row")
         self.setup_db()
         db = DatabaseConnector()
         update_sql = "UPDATE Staff SET FirstName = 'Testman' WHERE StaffID = 1"
@@ -34,6 +37,7 @@ class TestDatabaseConnector(TestCase):
                          f"Incorrect size of record: Expected record of size {expected_size} but was size {len(list(result))}")
 
     def test_should_correctly_delete_single_row_by_id(self, expected_size=1):
+        print("testing delete single row")
         self.setup_db()
         db = DatabaseConnector()
         delete_sql = "DELETE * FROM Staff WHERE StaffID = 1"
@@ -44,7 +48,8 @@ class TestDatabaseConnector(TestCase):
         self.assertEqual(expected_size, len(list(result)),
                          f"Incorrect size of record: Expected record of size {expected_size} but was size {len(list(result))}")
 
-    def test_execute_select_statement_should_not_exectute_update_statement(self):
+    def test_execute_select_statement_should_not_execute_update_statement(self):
+        print("testing select shouldn't update")
         self.setup_db()
         db = DatabaseConnector()
         sql = "DELETE * FROM Staff WHERE StaffID = 1"
@@ -53,6 +58,7 @@ class TestDatabaseConnector(TestCase):
                          f"Unexpected Value: Expected record of type None but was of type {type(result)}")
 
     def test_execute_update_statement_should_not_execute_select_statement(self):
+        print("testing update shouldn't select")
         self.setup_db()
         db = DatabaseConnector()
         sql = "SELECT * FROM Staff WHERE StaffID = 1"
@@ -63,4 +69,4 @@ class TestDatabaseConnector(TestCase):
     # resets the DB by executing the .sql file
     def setup_db(self):
         db = DatabaseConnector()
-        self.db.executeSqlScript("../../../resources/create_db_sql.sql")
+        self.db.executeSqlScript("../../../../resources/create_db_sql.sql")

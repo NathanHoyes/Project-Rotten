@@ -23,28 +23,29 @@ class DatabaseConnector():
     def executeSelectStatement(self, sql : str) -> iter:
         # ensure this is a select statement
         if self.isSelectStatement(sql):
-            return self.exectuteSql(sql)
+            return self.executeSql(sql)
 
 
     # will execute a statement to update the database i.e. NOT a SELECT statement
     def executeUpdateStatement(self, sql : str) -> None:
         # ensure this is an update statement
         if self.isUpdateStatement(sql):
-            return self.exectuteSql(sql)
+            return self.executeSql(sql)
 
     
     # will execute multiple update statements in a loop inside a single database connection and the close the connection
     def executeMultipleUpdateStatements(self, sqlStatements : list) -> None:
+        print("Trying to execute multiple sql statements:" + sqlStatements)
         try:
             connection = mysql.connector.connect(host=self.host,
                                                 database=self.database,
                                                 user=self.username,
                                                 password=self.password,
                                                 autocommit = True)
-            
+
+
             if connection.is_connected():
                 cursor = connection.cursor(buffered=True)
-
                 for statement in sqlStatements:
                     # ensure the statement is an update statement
                     if self.isUpdateStatement(statement):
@@ -62,28 +63,28 @@ class DatabaseConnector():
 
     # Function to execute a single sql statement in a single database connection and close the connection
     # Will return an iterator of values returned from sql statement
-    def exectuteSql(self, sql : str) -> iter:
+    def executeSql(self, sql : str) -> iter:
         
         result = None
-
+        print("Trying to execute" + sql)
         try:
             connection = mysql.connector.connect(host=self.host,
                                                 database=self.database,
                                                 user=self.username,
                                                 password=self.password,
                                                 autocommit = True)
-            
+
             if connection.is_connected():
                 cursor = connection.cursor(buffered=True)
                 cursor.execute(sql)
                 result = iter(cursor.fetchall())
-
 
         except Error as e:
             raise Exception(e)
 
         # must always make sure connection is closed no matter what happens
         finally:
+            print("Ending sql execution.")
             if connection.is_connected():
                 cursor.close()
                 connection.close()
@@ -92,13 +93,14 @@ class DatabaseConnector():
 
 
     def executeSqlScript(self, filePath : str) -> None:
+        print("Trying to run" + filePath)
         try:
             connection = mysql.connector.connect(host=self.host,
-                                                database=self.database,
-                                                user=self.username,
-                                                password=self.password,
-                                                autocommit = True)
-            
+                                                 user=self.username,
+                                                 database=self.database,
+                                                 password=self.password,
+                                                 autocommit=True)
+
             cursor = connection.cursor()
             if connection.is_connected():
                 with open(filePath, "r") as sql_file:
@@ -106,8 +108,9 @@ class DatabaseConnector():
 
         except Error as e:
             print(e)
-        
+
         finally:
+            print("Finished running" + filePath)
             if connection.is_connected():
                 cursor.close()
                 connection.close()
