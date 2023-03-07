@@ -15,7 +15,7 @@ class LocationDatabaseConnector:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
 
     def insert_row(self, locationName : str) -> None:
-        insert_sql = f"INSERT INTO Locations (LocationName) VALUES({locationName})"
+        insert_sql = f"INSERT INTO Locations (LocationName) VALUES('{locationName}')"
         self.database_connector.executeUpdateStatement(insert_sql)
 
     def delete_row(self, locationID : int) -> None:

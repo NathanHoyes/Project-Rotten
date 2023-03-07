@@ -16,7 +16,7 @@ class StaffDatabaseExecutor:
 
     def insert_row(self, loginID : int, first_name : str, last_name : str, locationID :int) -> None:
         insert_sql = "INSERT INTO Staff (LoginID, FirstName, LastName, LocationID) " \
-                     f"VALUES({loginID}, {first_name}, {last_name}, {locationID})"
+                     f"VALUES({loginID}, '{first_name}', '{last_name}', {locationID})"
         self.database_connector.executeUpdateStatement(insert_sql)
 
     def delete_row(self, staffID : int) -> None:

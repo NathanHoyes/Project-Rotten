@@ -13,11 +13,11 @@ class ProductDatabaseConnector:
     def get_all_rows(self) -> iter:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
 
-
-    def insert_row(self, product_name : str, primary_category : int, secondary_category : int, unit_cost : int, unit_weight : int) -> None:
+    def insert_row(self, product_name : str, primary_category : int, secondary_category : int,
+                   unit_cost : int, unit_weight : int) -> None:
         insert_sql = f"INSERT INTO products " \
-                     f"(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams)" \
-                     f"VALUES ({product_name}, {primary_category}, {secondary_category}, {unit_cost}, {unit_weight})"
+                     f"(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) " \
+                     f"VALUES ('{product_name}', {primary_category}, {secondary_category}, {unit_cost}, {unit_weight})"
         self.database_connector.executeUpdateStatement(insert_sql)
 
     def delete_row(self, productID: int) -> None:

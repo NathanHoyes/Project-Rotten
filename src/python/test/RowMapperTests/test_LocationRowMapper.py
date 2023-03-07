@@ -29,5 +29,13 @@ class Test(TestCase):
         self.assertEqual(locations[3].locationID, 4)
         self.assertEqual(locations[3].locationName, "Testaraunt")
 
+    def test_should_insert_row(self):
+        self.setup_db()
+        self.executor.insert_row("Test Location")
+        results = self.executor.get_all_rows()
+        locations = map_multiple_rows(results)
+        location = locations[-1]
+        self.assertEqual(location.locationName, "Test Location")
+
     def setup_db(self):
         self.db.executeSqlScript("../../../resources/create_db_sql.sql")

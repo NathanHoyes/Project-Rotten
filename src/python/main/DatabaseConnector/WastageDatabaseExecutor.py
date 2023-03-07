@@ -16,9 +16,9 @@ class WastageDatabaseConnector:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
 
     def insert_row(self, productID : int, quantity : int, staffID : int, locationID : int) -> None:
-        datetime_string = datetime.strftime("%d-%m-%Y %H:%M:%S")
+        datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         insert_sql = f"INSERT INTO wastage (ProductID, Quantity, StaffID, LocationID, DateTimeRecorded) " \
-                     f"VALUES({productID}, {quantity}, {staffID}, {locationID}, {datetime_string})"
+                     f"VALUES({productID}, {quantity}, {staffID}, {locationID}, '{datetime_string}')"
         self.database_connector.executeUpdateStatement(insert_sql)
 
 

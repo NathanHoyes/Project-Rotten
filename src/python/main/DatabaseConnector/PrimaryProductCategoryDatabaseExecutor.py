@@ -15,5 +15,5 @@ class PrimaryProductCategoryDatabaseExecutor:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
 
     def insert_row(self, category_name) -> None:
-        insert_sql = f"INSERT INTO primaryproductcategory (PrimaryProductCategoryName) VALUES({category_name})"
+        insert_sql = f"INSERT INTO primaryproductcategory (PrimaryProductCategoryName) VALUES('{category_name}')"
         self.database_connector.executeUpdateStatement(insert_sql)

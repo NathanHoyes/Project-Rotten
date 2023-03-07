@@ -24,5 +24,13 @@ class Test(TestCase):
         self.assertEqual(product_category.primaryProductCategoryId, 2)
         self.assertEqual(product_category.primaryProductCategoryName, "Vegetables")
 
+    def test_should_insert_row(self):
+        self.setup_db()
+        self.executor.insert_row("Test Category")
+        result = self.executor.get_all_rows()
+        product_category_list = map_multiple_rows(result)
+        product_category = product_category_list[-1]
+        self.assertEqual(product_category.primaryProductCategoryName, "Test Category")
+
     def setup_db(self):
         self.db.executeSqlScript("../../../resources/create_db_sql.sql")

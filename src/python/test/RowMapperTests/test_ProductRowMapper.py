@@ -33,5 +33,17 @@ class Test(TestCase):
         self.assertEqual(product.unitWeightGrams, 280)
 
 
+    def test_should_insert_value(self):
+        self.setup_db()
+        self.executor.insert_row("Test Product", 2, 3, 100, 100)
+        result = self.executor.get_all_rows()
+        product_list = map_multiple_rows(result)
+        product = product_list[-1]
+        self.assertEqual(product.productName, "Test Product")
+        self.assertEqual(product.primaryProductCategory, 2)
+        self.assertEqual(product.secondaryProductCategory, 3)
+        self.assertEqual(product.unitCostPence, 100)
+        self.assertEqual(product.unitWeightGrams, 100)
+
     def setup_db(self):
         self.db.executeSqlScript("../../../resources/create_db_sql.sql")

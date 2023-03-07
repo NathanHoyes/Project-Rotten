@@ -26,6 +26,14 @@ class Test(TestCase):
         self.assertEqual(admin.adminID, 2)
         self.assertEqual(admin.staffID, 2)
 
+    def test_should_insert_row(self):
+        self.setup_db()
+        self.executor.insert_row(3)
+        result = self.executor.get_all_rows()
+        admin_list = map_multiple_rows(result)
+        admin = admin_list[-1]
+        self.assertEqual(admin.staffID, 3)
+
 
 
     def setup_db(self):

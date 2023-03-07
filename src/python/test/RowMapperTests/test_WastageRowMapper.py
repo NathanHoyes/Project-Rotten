@@ -31,5 +31,16 @@ class Test(TestCase):
         self.assertEqual(wastage.locationID, 1)
         self.assertEqual(str(wastage.datetime_recorded), "2023-01-30 20:10:00")
 
+    def test_should_insert_row(self):
+        self.setup_db()
+        self.executor.insert_row(1, 1, 1, 1)
+        result = self.executor.get_all_rows()
+        wastage_list = map_multiple_rows(result)
+        wastage = wastage_list[-1]
+        self.assertEqual(wastage.productID, 1)
+        self.assertEqual(wastage.quantity, 1)
+        self.assertEqual(wastage.staffID, 1)
+        self.assertEqual(wastage.locationID, 1)
+
     def setup_db(self):
         self.db.executeSqlScript("../../../resources/create_db_sql.sql")
