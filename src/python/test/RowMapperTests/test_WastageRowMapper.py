@@ -42,5 +42,13 @@ class Test(TestCase):
         self.assertEqual(wastage.staffID, 1)
         self.assertEqual(wastage.locationID, 1)
 
+    def test_should_not_insert_row(self):
+        self.setup_db()
+        self.executor.insert_row(1, -1, 1, 1)
+        result = self.executor.get_all_rows()
+        wastage_list = map_multiple_rows(result)
+        wastage = wastage_list[-1]
+        self.assertNotEqual(wastage.wasteID, 12)
+
     def setup_db(self):
         self.db.executeSqlScript("../../../resources/create_db_sql.sql")

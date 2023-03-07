@@ -16,10 +16,14 @@ class WastageDatabaseConnector:
         return self.database_connector.executeSelectStatement(self.select_all_sql)
 
     def insert_row(self, productID : int, quantity : int, staffID : int, locationID : int) -> None:
-        datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        insert_sql = f"INSERT INTO wastage (ProductID, Quantity, StaffID, LocationID, DateTimeRecorded) " \
-                     f"VALUES({productID}, {quantity}, {staffID}, {locationID}, '{datetime_string}')"
-        self.database_connector.executeUpdateStatement(insert_sql)
+        if self.validate_insert(quantity):
+            datetime_string = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            insert_sql = f"INSERT INTO wastage (ProductID, Quantity, StaffID, LocationID, DateTimeRecorded) " \
+                         f"VALUES({productID}, {quantity}, {staffID}, {locationID}, '{datetime_string}')"
+            self.database_connector.executeUpdateStatement(insert_sql)
+
+    def validate_insert(self, quantity : int) -> bool:
+        return quantity > 0
 
 
     #TODO add additional search functionality - this will be very important

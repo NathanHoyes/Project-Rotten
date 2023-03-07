@@ -15,11 +15,15 @@ class ProductDatabaseConnector:
 
     def insert_row(self, product_name : str, primary_category : int, secondary_category : int,
                    unit_cost : int, unit_weight : int) -> None:
-        insert_sql = f"INSERT INTO products " \
-                     f"(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) " \
-                     f"VALUES ('{product_name}', {primary_category}, {secondary_category}, {unit_cost}, {unit_weight})"
-        self.database_connector.executeUpdateStatement(insert_sql)
+        if self.validate_insert(unit_cost, unit_weight):
+            insert_sql = f"INSERT INTO products " \
+                         f"(ProductName, PrimaryProductCategoryID, SecondaryProductCategoryID, UnitCostPence, UnitWeightGrams) " \
+                         f"VALUES ('{product_name}', {primary_category}, {secondary_category}, {unit_cost}, {unit_weight})"
+            self.database_connector.executeUpdateStatement(insert_sql)
 
     def delete_row(self, productID: int) -> None:
         delete_sql = f"DELETE FROM products WHERE ProductID = {productID}"
         self.database_connector.executeUpdateStatement(delete_sql)
+
+    def validate_insert(self, unit_cost : int, unit_weight : int) -> bool:
+        return unit_cost > 0 and unit_weight > 0
