@@ -17,7 +17,6 @@ class Test(TestCase):
         self.assertEqual(admin.adminID, 1)
         self.assertEqual(admin.staffID, 1)
 
-
     def test_map_multiple_rows(self):
         self.setup_db()
         result = self.executor.get_all_rows()

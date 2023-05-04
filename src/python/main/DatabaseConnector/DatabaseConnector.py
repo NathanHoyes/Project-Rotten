@@ -20,17 +20,17 @@ class DatabaseConnector():
 
 
     # will return an iterator of tuples which represent the rows returned by the SQL statement
-    def executeSelectStatement(self, sql : str) -> iter:
+    def executeSelectStatement(self, sql : str, params : tuple) -> iter:
         # ensure this is a select statement
         if self.isSelectStatement(sql):
-            return self.exectuteSql(sql)
+            return self.exectuteSql(sql, params)
 
 
     # will execute a statement to update the database i.e. NOT a SELECT statement
-    def executeUpdateStatement(self, sql : str) -> None:
+    def executeUpdateStatement(self, sql : str, params : tuple) -> None:
         # ensure this is an update statement
         if self.isUpdateStatement(sql):
-            return self.exectuteSql(sql)
+            return self.exectuteSql(sql, params)
 
     
     # will execute multiple update statements in a loop inside a single database connection and the close the connection
@@ -62,7 +62,7 @@ class DatabaseConnector():
 
     # Function to execute a single sql statement in a single database connection and close the connection
     # Will return an iterator of values returned from sql statement
-    def exectuteSql(self, sql : str) -> iter:
+    def exectuteSql(self, sql : str, params : tuple) -> iter:
         
         result = None
 
@@ -75,7 +75,7 @@ class DatabaseConnector():
             
             if connection.is_connected():
                 cursor = connection.cursor(buffered=True)
-                cursor.execute(sql)
+                cursor.execute(sql, params=params)
                 result = iter(cursor.fetchall())
 
 
