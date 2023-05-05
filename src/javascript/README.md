@@ -38,4 +38,14 @@ Follow these steps to run the Expo development server.
 
 ## Debugging
 
-Expo provides built-in debugging features, such as error reporting, performance monitoring, and logging. You can access these tools from the Expo Developer Tools in the browser, or by shaking your device while the app is running in development mode.
+Expo provides built-in debugging features on mobile, such as error reporting, performance monitoring, and logging. You can access these tools from the Expo Developer Tools in the terminal by pressing 'm', or by shaking your device while the app is running in development mode.
+
+For desktop debugging Chrome or Firefox's Javascript debugger should be sufficient.
+## Contributing
+Some contribution guidelines:
+### File Structure
+- `/assets` - Static images, fonts, etc.
+- `/components` - Reusable components, custom buttons, list views, etc.
+- `/api` - API related code, functions and classes for making requests to the Django back-end
+- `/screens` - Contains different screens or views. Each screen is responsible for rendering a specific part of the application
+- `/utils` - Any global utilities or functions.
