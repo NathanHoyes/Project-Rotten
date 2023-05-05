@@ -3,9 +3,6 @@
 .env
 .vscode
 
-# Node packages
-src/javascript/node_modules
-
 # Jetbrains recommended gitignore
 # User-specific stuff
 .idea/**/workspace.xml
